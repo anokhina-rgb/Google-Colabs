@@ -1,0 +1,24 @@
+﻿Three-File Translation & Glossary Generator Pipeline
+Overview
+The Three-File Translation & Glossary Generator is an automated Python and Google Colab pipeline designed for translators, interpreters, language learners, and researchers. It takes any raw text input, executes true neural machine translation (supporting bidirectional English-Ukrainian and automatic language detection), extracts up to 100 key terminology items using advanced natural language processing (spaCy), and compiles everything into three professional, separate Microsoft Word documents (.docx) bundled into a single downloadable .zip archive.
+Key Features
+1. True Neural Machine Translation: Utilizes deep-translator with Google Translate backing to accurately convert multi-paragraph texts rather than echoing identical source text.
+2. Automated Language Handling: Seamlessly switches between English-to-Ukrainian and Ukrainian-to-English translation pipelines.
+3. Smart Linguistic Glossary Extraction: Powered by spaCy (en_core_web_sm / uk_core_news_sm), it extracts high-value noun chunks, proper nouns, and technical adjectives, filtering out common stop words and frequency-sorting the top terms.
+4. Three Distinct Output Artifacts:
+   * 1_Original_Document.docx: Clean copy of the source text paragraphs.
+   * 2_Translated_Document.docx: Paragraph-by-paragraph translated output.
+   * 3_Glossary_Terms.docx: A structured table pairing source terms with their target translations.
+5. Instant ZIP Packaging: Automatically compresses all three documents into translation_package.zip and triggers an instant browser download via Google Colab utilities.
+Technical Stack & Dependencies
+* Python 3.13+
+* python-docx: Programmatic generation and formatting of Microsoft Word documents and grid tables.
+* spacy: Industrial-strength Natural Language Processing for tokenization, noun-chunk extraction, and POS tagging.
+* deep-translator: Robust wrapper for free translation APIs with auto-chunking for long text blocks.
+* google.colab: Seamless file management and browser download triggering inside Google Colab notebooks.
+Pipeline Workflow
+1. Initialization & Setup: Installs required packages (python-docx, spacy, deep-translator) and downloads appropriate language models (en_core_web_sm, uk_core_news_sm).
+2. Text Processing & Translation: Splits input text into discrete paragraphs and translates them through the neural translator, handling character chunking safely.
+3. Glossary Extraction: Runs spaCy over the source text, gathers candidate noun phrases and key terms, counts frequencies, and translates each entry individually.
+4. Document Generation: Constructs the three Word documents with custom headings, paragraphs, and formatted grid tables (Table Grid).
+5. Archiving & Delivery: Compresses the files into translation_package.zip and initiates automatic download.
